@@ -1,11 +1,11 @@
 Summary:	shadow tool suite
 Name:		shadow
-Version:	4.1.5.1
-Release:	2
+Version:	4.2.1
+Release:	1
 License:	GPL v2 and BSD
 Group:		Applications/System
-Source0:	http://pkg-shadow.alioth.debian.org/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	a00449aa439c69287b6d472191dc2247
+Source0:	http://pkg-shadow.alioth.debian.org/releases/%{name}-%{version}.tar.xz
+# Source0-md5:	2bfafe7d4962682d31b5eba65dba4fc8
 Source1:	login.defs
 Source2:	useradd
 Source3:	common.pamd
@@ -85,6 +85,8 @@ fi
 %attr(4755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/expiry
 %attr(4755,root,root) %{_bindir}/gpasswd
+%attr(4755,root,root) %{_bindir}/newgidmap
+%attr(4755,root,root) %{_bindir}/newuidmap
 %attr(4755,root,root) %{_bindir}/passwd
 %attr(4755,root,root) %{_bindir}/sg
 
@@ -122,10 +124,14 @@ fi
 %{_mandir}/man1/chage.1*
 %{_mandir}/man1/expiry.1*
 %{_mandir}/man1/gpasswd.1*
+%{_mandir}/man1/newgidmap.1.*
+%{_mandir}/man1/newuidmap.1.*
 %{_mandir}/man1/passwd.1*
 %{_mandir}/man1/sg.1*
 %{_mandir}/man3/shadow.3*
 %{_mandir}/man5/login.defs.5*
+%{_mandir}/man5/subgid.5.*
+%{_mandir}/man5/subuid.5.*
 %{_mandir}/man8/chpasswd.8*
 %{_mandir}/man8/groupadd.8*
 %{_mandir}/man8/groupdel.8*
