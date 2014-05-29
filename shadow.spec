@@ -1,7 +1,7 @@
 Summary:	shadow tool suite
 Name:		shadow
 Version:	4.2.1
-Release:	1
+Release:	2
 License:	GPL v2 and BSD
 Group:		Applications/System
 Source0:	http://pkg-shadow.alioth.debian.org/releases/%{name}-%{version}.tar.xz
@@ -51,12 +51,12 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/default/useradd
 touch $RPM_BUILD_ROOT%{_sysconfdir}/shadow
 
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/{chfn,chsh,faillog,groups,login,sg,su}
-%{__rm} $RPM_BUILD_ROOT%{_sbindir}/{chgpasswd,grpconv,groupmems,logoutd,vipw,vigr}
+%{__rm} $RPM_BUILD_ROOT%{_sbindir}/{chgpasswd,grpconv,groupmems,logoutd,nologin,vipw,vigr}
 %{__rm} -r $RPM_BUILD_ROOT%{_mandir}/*/man{1,3,5,8}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/{chfn,chsh,groups,login,newgrp,su}*
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/getspnam*
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man5/{faillog,gshadow,passwd,shadow,suauth}*
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/man8/{chgpasswd,faillog,groupmems,grpconv,grpunconv,logoutd,vigr,vipw}*
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man8/{chgpasswd,faillog,groupmems,grpconv,grpunconv,logoutd,nologin,vigr,vipw}*
 
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/{newgrp,sg}
 %{__rm} $RPM_BUILD_ROOT/etc/pam.d/*
@@ -99,7 +99,6 @@ fi
 %attr(755,root,root) %{_sbindir}/grpck
 %attr(755,root,root) %{_sbindir}/grpunconv
 %attr(755,root,root) %{_sbindir}/newusers
-%attr(755,root,root) %{_sbindir}/nologin
 %attr(755,root,root) %{_sbindir}/pwck
 %attr(755,root,root) %{_sbindir}/pwconv
 %attr(755,root,root) %{_sbindir}/pwunconv
@@ -139,7 +138,6 @@ fi
 %{_mandir}/man8/grpck.8*
 %{_mandir}/man8/lastlog.8*
 %{_mandir}/man8/newusers.8*
-%{_mandir}/man8/nologin.8*
 %{_mandir}/man8/pwck.8*
 %{_mandir}/man8/pwconv.8*
 %{_mandir}/man8/pwunconv.8*
