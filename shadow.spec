@@ -1,7 +1,7 @@
 Summary:	shadow tool suite
 Name:		shadow
 Version:	4.2.1
-Release:	2
+Release:	3
 License:	GPL v2 and BSD
 Group:		Applications/System
 Source0:	http://pkg-shadow.alioth.debian.org/releases/%{name}-%{version}.tar.xz
@@ -31,6 +31,7 @@ programs for managing user and group accounts.
 %configure \
 	--disable-shadowgrp	\
 	--disable-shared	\
+	--with-group-name-max-length=32	\
 	--with-libpam		\
 	--with-sha-crypt	\
 	--without-audit		\
