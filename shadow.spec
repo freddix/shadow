@@ -1,7 +1,7 @@
 Summary:	shadow tool suite
 Name:		shadow
 Version:	4.2.1
-Release:	3
+Release:	5
 License:	GPL v2 and BSD
 Group:		Applications/System
 Source0:	http://pkg-shadow.alioth.debian.org/releases/%{name}-%{version}.tar.xz
@@ -10,10 +10,11 @@ Source1:	login.defs
 Source2:	useradd
 Source3:	common.pamd
 Source4:	passwd.pamd
+Source5:	lastlog.tmpfiles
 URL:		http://pkg-shadow.alioth.debian.org/
 BuildRequires:	acl-devel
 BuildRequires:	attr-devel
-BuildRequires:	libgcrypt-devel
+BuildRequires:	pam-devel
 BuildRequires:	pkg-config
 Obsoletes:	pwdutils
 Provides:	pwdutils = 3.2.20
@@ -71,6 +72,8 @@ do
 	install %{SOURCE4} $RPM_BUILD_ROOT/etc/pam.d/$pamd
 done
 
+install -D %{SOURCE5} $RPM_BUILD_ROOT%{_prefix}/lib/tmpfiles.d/lastlog.conf
+
 %find_lang %{name}
 
 %clean
@@ -92,6 +95,7 @@ fi
 %attr(4755,root,root) %{_bindir}/sg
 
 %attr(755,root,root) %{_bindir}/lastlog
+%{_prefix}/lib/tmpfiles.d/lastlog.conf
 
 %attr(755,root,root) %{_sbindir}/chpasswd
 %attr(755,root,root) %{_sbindir}/groupadd
