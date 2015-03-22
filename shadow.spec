@@ -1,7 +1,7 @@
 Summary:	shadow tool suite
 Name:		shadow
 Version:	4.2.1
-Release:	5
+Release:	6
 License:	GPL v2 and BSD
 Group:		Applications/System
 Source0:	http://pkg-shadow.alioth.debian.org/releases/%{name}-%{version}.tar.xz
@@ -52,7 +52,7 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/default/useradd
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/shadow
 
-%{__rm} $RPM_BUILD_ROOT%{_bindir}/{chfn,chsh,faillog,groups,login,sg,su}
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/{chfn,chsh,faillog,login,sg,su}
 %{__rm} $RPM_BUILD_ROOT%{_sbindir}/{chgpasswd,grpconv,groupmems,logoutd,nologin,vipw,vigr}
 %{__rm} -r $RPM_BUILD_ROOT%{_mandir}/*/man{1,3,5,8}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/{chfn,chsh,groups,login,newgrp,su}*
@@ -93,6 +93,7 @@ fi
 %attr(4755,root,root) %{_bindir}/newuidmap
 %attr(4755,root,root) %{_bindir}/passwd
 %attr(4755,root,root) %{_bindir}/sg
+%attr(755,root,root) %{_bindir}/groups
 
 %attr(755,root,root) %{_bindir}/lastlog
 %{_prefix}/lib/tmpfiles.d/lastlog.conf
